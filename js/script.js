@@ -58,7 +58,32 @@ createApp({
             // creo proprietà per immagine di partenza
             activeSlide: 0,
             
-           
+        }
+    },
+    
+    methods: {
+        // funzione prossima immagine
+        nextImage() {
+
+            // imcremento indice per ogni click
+            this.activeSlide++;
+
+            // ciclo infinito
+            if(this.activeSlide > this.slides.length - 1) {
+                this.activeSlide = 0;
+            }
+        },
+
+        // funzione immagine precedente
+        prevImage() {
+
+            // decremento indice
+            this.activeSlide--;
+
+            // ciclo infinito
+            if(this.activeSlide < 0) {
+                this.activeSlide = this.slides.length - 1;
+            }
         }
     }
 }).mount("#app");
